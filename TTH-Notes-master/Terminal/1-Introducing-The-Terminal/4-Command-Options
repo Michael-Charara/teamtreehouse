@@ -1,0 +1,30 @@
+Command Arguments are all the same to the shell, but there's a type of argument that many commands treat specially: options. options generally make some small change to the way a command works.
+
+Options usually consist of a dash followed by a single letter.
+For example, we can get the ls command to display all files, even files that are hidden, by passing it the -a option as an argument: ls -a
+On Unix-like systems, a file is treated as "hidden" if its file name begins with a dot.
+Now that we've told the ls command to list all files, we can see .ninja and .spy files that were hidden previously.
+Here's another option for the ls command: -t, which causes files to be sorted by the time they were created: ls -t
+This shows us that bird.txt is the newest file, and statue.txt is the oldest.
+Most options for a command can be combined. If we pass both the -a and -t options to ls, it will show us all files sorted by time of creation: ls -a -t
+This shows us that the .ninja and .spy files are even newer than bird.txt.
+treehouse:~/workspace$ ls -a
+.  ..  bird.txt  cart.txt  library  mall  .ninja  offices  .spy  statue.txt
+treehouse:~/workspace$ ls -t
+mall  offices  library  bird.txt  cart.txt  statue.txt
+treehouse:~/workspace$ ls -a -t
+.  .ninja  .spy  mall  offices  library  bird.txt  cart.txt  statue.txt  ..
+Most commands accept options, but the set of options and their meaning varies with each command. The cat command, for example, accepts a -n option that numbers each line of output: cat -n bird.txt cart.txt statue.txt
+Notice that the option is followed by regular arguments giving the file names to print. With most commands, options are given before the command's regular arguments.
+treehouse:~/workspace$ cat -n bird.txt cart.txt statue.txt
+  1  There is a bird here, looking up at the statue with interest.
+  2  A stand selling hot dogs and bottles of diet cola.
+  3  A statue of a hunter standing over a dead bear. Creepy.
+It can be hard to remember what those single-letter options stand for, so many commands also support longer option names.
+These begin with a double-dash followed by one or more words.
+For example, the ls command lets you use a --all option instead of -a to list all files: ls --all
+Not all single-letter options have a longer equivalent, though. For example there is no longer version of ls's -t option, so you'll have to use the abbreviation: ls --all -t
+treehouse:~/workspace$ ls --all
+.  ..  bird.txt  cart.txt  library  mall  .ninja  offices  .spy  statue.txt
+treehouse:~/workspace$ ls --all -t
+.  .ninja  .spy  mall  offices  library  bird.txt  cart.txt  statue.txt  ..

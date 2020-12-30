@@ -1,0 +1,48 @@
+We'll admit, it's a little difficult to remember how to use some of these commands. It gets better as you get more practice using them, but even experienced shell users have to look up commands or options that they don't use as often.
+
+Fortunately, it's really easy to look up program documentation on Unix-like systems.
+There's a standard command called man, short for "manual".
+You type the man command, and the name of the program you want more info on as an argument. For example, let's try bringing up info on the ls command: man ls
+man sends its output through the less command.
+So you can use the arrow keys to scroll, and type "q" to quit.
+LS(1)                          User Commands                         LS(1)
+
+NAME
+       ls - list directory contents
+
+SYNOPSIS
+       ls [OPTION]... [FILE]...
+
+DESCRIPTION
+       List   information  about  the  FILEs  (the  current  directory  by
+       default).  Sort entries alphabetically if  none  of  -cftuvSUX  nor
+       --sort is specified.
+
+       Mandatory arguments to long options are mandatory for short options
+       too.
+
+       -a, --all
+              do not ignore entries starting with .
+[...Text continues...]
+The format of the manual, or "man page", for every program is different.
+But there are some conventions that program authors try to follow when writing their documentation.
+The purpose of the program is usually listed near the top. It says the ls program is used to list directory contents, which we know to be true.
+Then it usually lists arguments the command accepts.
+"OPTION" means command-line options like -a or -t.
+And then the ls command accepts the names of one or more files or directories you want to list.
+You don't have to provide any options to ls, and you don't have to provide any file names. That's why both "[OPTION]" and "[FILE]" are in square brackets, to show those arguments are optional.
+But ls can also accept more than one option, and more than one file name. That's why there's an ellipsis, a group of three dots, following both "[OPTION]" and "[FILE]".
+Next you'll usually find a description of the various options the program accepts.
+Here you can see the -a option, or its longer synonym --all. It says this option tells ls: "do not ignore entries starting with .".
+["q", ls -a]: ls -a
+We also know this to be true. If we run ls with the -a option, it reveals files whose names begin with a dot.
+[Drag over (do not double-click) .ninja, .spy.]
+man ls
+If we scroll down, we'll see -l, an option to "use a long listing format".
+Let's try that. ["q", ls -l]: ls -l
+It looks like it lists additional information about each file, like the user who created it and the date it was created.
+man ls
+If we scroll down still further, we'll see the -t option that we used before. It sorts files by the time they were last modified.
+There are many other options listed here. Some you'll understand, and some you won't, and that's okay. Manual pages tend to be written in a very technical style. They're intended to be more of a reminder of how to use a command, rather than a tutorial in using it.
+
+Even expert shell users don't bother trying to memorize every aspect of a command. They rely on web searches to help them learn which commands will solve their problems. And once they've learned to use a command, they rely on the man command to help them remember the details. So feel free to forget the command options you don't often use. Instead, just remember the man command

@@ -1,0 +1,46 @@
+By default, terminals run a program called a shell.
+There are many different shell programs available, most of them with names ending in "sh" like zsh, ksh, and so on.
+Most operating systems today run a shell called Bash, and that's what we use for this course.
+All the different shells work very similarly, so the things you learn in Bash will be applicable in the other shells, too.
+treehouse:~/workspace$ 
+You can see a bunch of text here, ending in a dollar sign ($).
+This is the shell prompt. The shell is "prompting" you to type something.
+Most shell prompts end with a dollar sign like this.
+The blinking box following the dollar sign is the cursor. It's the place that text you type will appear. It mostly works like the cursors you've seen in word processors and web forms, but with a few exceptions.
+You can type text with the letter keys on your keyboard, and you can delete it with the backspace key.
+You can move back and forth within the text you've typed on this line with the left and right arrow keys.
+But you can only type on this one line; you can't move off of it.
+If you press the up and down arrow keys, it will instead cycle through entries you've made previously. This is called command history, and we'll talk about it more in an upcoming video.
+We can run commands at the prompt to execute other programs inside the shell.
+The output of these commands will be shown in the terminal.
+Because the shell offers you a single line of text where you enter commands, this is often referred to as the command line.
+Let's try running a program called ls, which is used for listing files. I type ls and press the Enter key to run the command: ls
+The program runs, and its output appears on the terminal below the command line.
+The program prints out the names of several files.
+Then the ls program finishes, and we are returned to our shell prompt.
+The shell is ready for us to type another command.
+treehouse:~/workspace$ ls
+bird.txt  cart.txt  library  mall  offices  statue.txt
+treehouse:~/workspace$ 
+Let's try running another program. This time, we'll run the whoami command, which prints the name of the current user account: whoami
+It looks like we're logged in as a user named treehouse.
+Once again, the program completes, and we're returned to the shell prompt.
+treehouse:~/workspace$ whoami
+treehouse
+treehouse:~/workspace$ 
+Now I'll run a program called cat, which concatenates, or joins, the contents of files together: cat
+Normally, you'd provide the names of one or more files you want cat to print out. But since I didn't provide any, the cat program sits there waiting for input.
+I don't want to use this right now, so I'm going to stop the cat program. To do this, I hold down the "Ctrl" key on my keyboard and press the "c" key: Ctrl-c
+This special key combination sends a signal to the program telling it that I want to quit.
+Any time a terminal program appears to be stuck or isn't doing what you want, you can press Ctrl-c to send it this signal. Most of the time, the program will quit and return you to the shell prompt, so you can run another command.
+The clear program clears output from the terminal screen, moving the prompt up to the top.
+By default the Bash shell also supports a keyboard shortcut that does the same thing.
+Just hold the "Ctrl" key, and press "l". (That's a lower-case "L".)
+Before we move on, I should point out a couple more aspects of the prompt.
+This prompt shows the name of the current user: "treehouse".
+Then it shows the directory, or folder, that we're in: ~/workspace.
+I can change to a different directory: cd library
+And the directory name will be updated when the new prompt is shown.
+As I mentioned before, the end of the prompt is usually marked with a dollar sign for normal users. This could be changed but it's conventional to use a dollar sign.
+treehouse:~/workspace$ cd library
+treehouse:~/workspace/library$ 

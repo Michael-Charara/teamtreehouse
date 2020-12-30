@@ -1,0 +1,42 @@
+/* ================================= 
+  Flexbox
+==================================== */
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.item-5 {
+  order: -1;
+}
+
+.item-1 {
+  order: -2;
+}
+
+
+
+/*  
+Resources
+
+order - MDN
+https://developer.mozilla.org/en-US/docs/Web/CSS/order
+
+A Complete Guide to Flexbox
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+
+
+Video review
+
+The order property applies to flex items only.
+We can use the order property to change the order of any flex item.
+You can structure an HTML document for SEO or accessibility first, then rearrange the content without ever editing the HTML.
+The default order of all flex items is 0.
+order places flex items relative to the other items' order values.
+To place a flex item before another item, it needs to have a lower order value than the item.
+To place a flex item after another item, it needs to have a higher order value than the item.
+
+*/

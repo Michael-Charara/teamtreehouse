@@ -1,0 +1,95 @@
+Now for a special symbol that works totally differently than the others, the asterisk: *
+The asterisk is used for wildcard expansion, where a pattern is used to complete one or more file or directory names.
+It's great for working with several files at once.
+I'm going to change to a subdirectory within this workspace's library directory devoted to novels by author Kim Stanley Robinson: cd ~/workspace/library/fiction/kim_stanley_robinson/
+There's files for the books in his "Mars Trilogy": "Red Mars", "Green Mars", and "Blue Mars". There's also a file for the new "Red Moon" novel. And finally there's some kind of executable script here.
+When you type part of a file name with an asterisk, the shell will treat the asterisk as a "wild card".
+It will find all files whose name matches the partial name you typed. The asterisk, the wild card, can represent a group of any characters.
+So suppose I wanted to run a command on all the files with a .txt extension.
+I could type *.txt to find all of those files, and pass each of them as an argument to the command.
+I'll do it using the echo command first, so you can see what the shell converts it to: echo *.txt
+You can see that the *.txt gets expanded out to four arguments, one for each file it matched. There's an argument here for each text file in this directory.
+Notice that the shell script was not included, because its file name ends in .sh, not .txt.
+Now, instead of the echo command, let's use the cat command with *.txt, to print the contents of all the text files: cat *.txt
+*.txt gets expanded out to the same four arguments, but this time they're passed to the cat command, which prints the file contents.
+treehouse:~/workspace$ cd ~/workspace/library/fiction/kim_stanley_robinson/
+treehouse:~/workspace/library/fiction/kim_stanley_robinson$ ls
+blue_mars.txt  green_mars.txt  red_mars.txt  red_moon.txt  reserve.sh
+treehouse:~/workspace/library/fiction/kim_stanley_robinson$ echo *.txt
+blue_mars.txt green_mars.txt red_mars.txt red_moon.txt
+treehouse:~/workspace/library/fiction/kim_stanley_robinson$ cat *.txt
+A novel about the civilization of Mars.
+A novel about the terraforming of Mars.
+A novel about the colonization of Mars.
+A novel about the colonization of the moon.
+Wildcard expansion can find all file names that end a certain way, but it can also find all file names that start a certain way.
+Let's try running echo re*: echo re*
+It will match red_mars.txt, red_moon.txt, and this reserve.sh script.
+We'd rather not include the shell script, so let's match files with a certain start and ending: echo re*.txt
+That's better; now we just have the two text files.
+Let's try using this pattern with the cat command: cat re*.txt
+It prints the contents of just the "Red Mars" and "Red Moon" files.
+treehouse:~/workspace/library/fiction/kim_stanley_robinson$ echo re*
+red_mars.txt red_moon.txt reserve.sh
+treehouse:~/workspace/library/fiction/kim_stanley_robinson$ echo re*.txt
+red_mars.txt red_moon.txt
+treehouse:~/workspace/library/fiction/kim_stanley_robinson$ cat re*.txt
+A novel about the colonization of Mars.
+A novel about the colonization of the moon.
+To match all files, regardless of how they start or end, use just a star: echo *
+cat * will print the contents of all files: cat *
+But be warned, sometimes a wild card will match files you don't want.
+For example, in this case, we just printed the contents of the reserve.sh script.
+If you accidentally print a file that doesn't contain text, you'll wind up with gibberish on your terminal.
+And that's just printing files. Wildcards can be used with other commands to edit or even delete files. So when using wildcards, take care to ensure you're acting on the right files.
+treehouse:~/workspace/library/fiction/kim_stanley_robinson$ echo *
+blue_mars.txt green_mars.txt red_mars.txt red_moon.txt reserve.sh
+treehouse:~/workspace/library/fiction/kim_stanley_robinson$ cat *
+A novel about the civilization of Mars.
+A novel about the terraforming of Mars.
+A novel about the colonization of Mars.
+A novel about the colonization of the moon.
+#!/bin/sh
+echo "Not implemented"
+Wildcards can match directories, too.
+Let me change to a directory that contains both files and subdirectories: cd ~/workspace
+And list its contents: ls
+If I try running echo *a*, it will all the files and subdirectories whose names contain the letter "a".
+bird.txt and the offices/ directory are excluded, because their names don't contain "a".
+Now let's try cat *a*: cat *a*
+It prints the contents of two text files.
+Two directories get passed to cat as well, but they get ignored.
+We can also try ls *a*: ls *a*
+The two text files are listed out.
+It will also list the contents of the two directories.
+treehouse:~/workspace/library/fiction/kim_stanley_robinson$ cd ~/workspace
+treehouse:~/workspace$ ls
+bird.txt  cart.txt  library  mall  offices  statue.txt
+treehouse:~/workspace$ echo *a*
+cart.txt library mall statue.txt
+treehouse:~/workspace$ cat *a*
+A stand selling hot dogs and bottles of diet cola.
+cat: library: Is a directory
+cat: mall: Is a directory
+A statue of a hunter standing over a dead bear. Creepy.
+treehouse:~/workspace$ ls *a*
+cart.txt  statue.txt
+
+library:
+fiction  non-fiction  periodicals
+
+mall:
+dullards  map.txt  starbunks
+We can match all directories, but none of the regular files, with */: echo */
+ls */ will list the contents of all the directories.
+treehouse:~/workspace$ echo */
+library/ mall/ offices/
+treehouse:~/workspace$ ls */
+library/:
+fiction  non-fiction  periodicals
+
+mall/:
+dullards  map.txt  starbunks
+
+offices/:
+dentist  lawyer  web_agency

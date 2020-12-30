@@ -1,0 +1,97 @@
+/* Pseudo-elements -------------------------------- */
+
+.intro::first-line {
+    font-weight: bold;
+    font-size: 1.4em;
+}
+
+.intro::first-letter {
+    float: left;
+    font-size: 80px;
+    color: white;
+    padding: 5px 10px;
+    background: #384047;
+    margin: 10px 10px 0 0;
+    border-radius: 5px;
+    line-height: 1;
+}
+
+.jpg::before {
+    content: "JPG - ";
+    font-size: .75em;
+}
+
+.zip::before {
+    content: url(../img/icn-zip.svg);
+    margin-right: 8px;
+}
+
+h1::before,
+h1::after {
+    content: "";
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: coral;
+    margin: 0 10px;
+}
+
+
+.d-loads a::after {
+    content: attr(title);
+    display: inline-block;
+    color: initial;
+    font-size: .65em;
+    margin-left: 5px;
+}
+
+/* inserted before or after the text not the boundaries as shows with the example below */
+
+.d-loads a {
+    border: solid 1px;
+}
+
+/* 
+Quick Reference
+
+::first-line - MDN
+https://developer.mozilla.org/en-US/docs/Web/CSS/::first-line
+::first-letter - MDN 
+https://developer.mozilla.org/en-US/docs/Web/CSS/::first-letter
+*/
+
+/* 
+Quick Reference
+
+::before - MDN
+https://developer.mozilla.org/en-US/docs/Web/CSS/::before
+::after - MDN
+https://developer.mozilla.org/en-US/docs/Web/CSS/::after
+content - MDN
+https://developer.mozilla.org/en-US/docs/Web/CSS/content
+
+
+What we need to know about pseudo-elements
+
+The only way we're able to generate pseudo-elements is with the content property.
+Pseudo-elements do not work with images and form elements. Replaced elements like input or img have no content, so we shouldn't be able to use generated content for them (source). 
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements
+http://red-team-design.com/css-generated-content-replaced-elements/
+*/
+
+/*  
+Quick Reference
+
+attr() - MDN
+https://developer.mozilla.org/en-US/docs/Web/CSS/attr
+
+Using attr()
+
+This pseudo-element rule will insert the value of an a element's title attribute after the link's content:
+
+a::after {
+  content: attr(title);
+}
+*/

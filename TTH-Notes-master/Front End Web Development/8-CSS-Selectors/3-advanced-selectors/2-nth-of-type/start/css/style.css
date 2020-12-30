@@ -1,0 +1,23 @@
+/* Structural Pseudo-classes------------------ */
+
+div:nth-last-of-type(3) {
+  background: #52bab3;
+  color: white;
+}
+
+
+/* 
+Quick Reference
+:nth-of-type - MDN
+https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-of-type
+
+
+Using :nth-of-type
+
+This selector targets the 4th div inside the parent, no matter what type of child elements come before it:
+
+div:nth-of-type(4) {
+  background: #52bab3;
+  color: white;
+}
+*/

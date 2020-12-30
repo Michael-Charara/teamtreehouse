@@ -1,0 +1,29 @@
+The Terminal is a way to control your computer using just text.
+
+The Graphical User Interfaces or GUIs you see on desktop and mobile apps and websites have their place. You can easily see what options are available to you, and click on the one you want.
+The terminal lets you run commands that are far more powerful than anything a GUI can do for you.
+Apps that run in the terminal use what's called a command-line interface, or CLI.
+So how do you access the terminal?
+Most operating systems offer some sort of terminal-like program by default.
+On Mac and Linux machines, it's usually simply called Terminal.
+On Windows, it's called Command Prompt, although there are alternatives like PowerShell.
+But you don't have to worry about those details right now, because you have access to Treehouse Workspaces.
+Each workspace includes a console area that works just like a terminal. You can run commands and see their output. We'll give you directions on how to do this shortly.
+In this course, we're going to be focusing on the terminal as used in the Linux and Mac operating systems. We'll have info near the end of the course for those who need to apply some of these concepts in Windows. You might wonder why we're not showing the Windows way first... Let me explain.
+
+The vast majority of servers where developers deploy their software are running operating systems that are compatible with Unix, a powerful OS developed in the 1960s.
+These compatible OSs include Linux and Mac OS.
+All of these operating systems feature file systems and programs that work in much the same way. If you learn to use terminal programs on Linux, you'll find they all work in much the same way on Mac OS and vice-versa.
+This isn't true with Windows. You can still do a lot from the Command Prompt on Windows, but most commands are run in a different way, and will only work on Windows.
+We're focusing on Unix-like operating systems because they're more popular as servers, and because the commands you learn will be usable on more systems.
+By the way, this course is an update to our retired Console Foundations course, by Jim Hoskins. A big thanks goes to Jim for his earlier work!
+
+Commands Shown in this Video
+
+We just included these commands to show you what you'll be able to do in the terminal someday. If you're just learning to use the terminal, then you're not ready for these yet. Come back after completing this course!
+
+curl: Retrieve web pages and other data using a URL.
+Docker: Wraps applications written for any operating system so that they can run on any other operating system.
+Git: Keeps old versions of your files so you can switch back to them if needed.
+wc: Count the number of words and letters in a file or other text.
+ssh: Securely connect to shells on other computers so you can control them.

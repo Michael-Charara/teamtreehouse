@@ -1,0 +1,57 @@
+/* ================================= 
+  Media Queries
+==================================== */
+
+@media (min-width: 769px) {
+
+	.main-header,
+	.main-nav,
+	.row {
+		display: flex;
+	}
+
+	.main-header {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.col {
+		flex: 1 50%;
+	}
+
+	.row {
+		flex-wrap: wrap;
+	}
+
+	.secondary {
+		order: -1;
+	}
+
+}
+
+@media (min-width: 1025px) {
+
+	.main-header {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	.col {
+		flex-basis: 0;
+	}
+
+	.primary {
+		flex-grow: 1.4;
+	}
+
+
+
+}
+
+
+/*  
+Video review
+
+You can use flexbox to make responsive column calculations less complex.
+Use the flex-basis property to set the initial size you want the column items to be.
+*/

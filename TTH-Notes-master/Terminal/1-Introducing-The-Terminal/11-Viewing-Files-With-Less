@@ -1,0 +1,37 @@
+Let me change to the ~/workspace/library/non-fiction directory: cd ~/workspace/library/non-fiction
+ls
+I have a text file here, called terminal.txt.
+It's not huge, but it's bigger than the text files we've looked at so far. It contains more that a terminal screen's worth of text.
+If I want to look at its contents, I could use the cat command: cat terminal.txt
+But there's a couple problems with this.
+First, the text doesn't all fit on the screen. The top part is cut off.
+Second, it leaves the file contents sitting in my terminal output. I can't see my previous commands or their output any more.
+This file's still pretty short, so it isn't too bad, but with bigger files this could be a real issue.
+This is why pager programs were created. They're interactive programs that display a file on your terminal screen, one page at a time.
+When I say they're interactive, I mean that they don't finish running immediately; they wait for input from you.
+The original pager on most Unix-like systems is a program called more.
+In fact, it's still around on many systems today.
+You type the more command name, and pass the names of one or more files you want to read as arguments: more terminal.txt
+Notice the "More" indicator at the bottom of the screen. It's showing that there's more content in the file that isn't displayed yet.
+If I press the spacebar, it will display another terminal screenful, or "page", of text.
+It will keep doing this until it reaches the bottom of the file, at which point it will quit, leaving the file contents displayed on the terminal.
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+--More--(30%)
+Many systems have another, newer pager program installed that's inspired by more, called less.
+It works in the same way. You type less, followed by the names of one or more files you want to view: less terminal.txt
+less starts by showing the top of the file.
+You can use the space bar to show additional pages, if you want, but you can also use the arrow keys to scroll up and down, one line at a time.
+Unlike more, less does not automatically quit when you reach the bottom of the file, because that would prevent you from scrolling back up.
+When you want to quit less, you press the "q" key.
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+terminal.txt
+Notice that unlike more, less doesn't leave the file contents up on your terminal screen when it's done. It restores everything just the way it was.
+This lets you easily review your previous commands and their output.

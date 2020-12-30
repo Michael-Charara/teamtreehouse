@@ -1,0 +1,58 @@
+/* ================================= 
+  Media Queries
+==================================== */
+
+@media (min-width: 769px) {
+  
+  .main-header, 
+  .main-nav,
+  .row {
+    display: flex;
+  }
+
+  .main-header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .col {
+    flex: 1;
+  }
+}
+
+@media (min-width: 1025px) {
+
+  .main-header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .primary {
+    flex: 2;
+  }
+
+}
+
+
+/*  
+Resources
+
+Flexbox - latest browser support
+http://caniuse.com/#search=flexbox
+
+
+Video Review
+
+It's possible for an element to be both a flex item and a flex container.
+Giving .main-header a justify-content: space-between; declaration positions the site name on the left side of the header and the navigation menu on the right:
+
+.main-header {
+  justify-content: space-between; 
+}
+
+Related Videos
+
+Using a Mobile First Approach
+Take a Mobile First Approach
+Responsive Patterns: Flexbox
+*/

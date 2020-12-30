@@ -1,0 +1,40 @@
+/* ================================= 
+  Flexbox
+==================================== */
+
+.container {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.item {
+	flex-grow: 1;
+}
+
+.item-3 {
+	flex-grow: 3;
+}
+
+
+
+
+/*  
+Resources
+
+flex-grow - MDN
+https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow
+
+A Complete Guide to Flexbox
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+
+flex-grow is weird. Or is it?
+https://css-tricks.com/flex-grow-is-weird/
+
+
+Video review
+
+The flex-grow property applies to flex items only.
+flex-grow determines how much of the available space inside the flex container an item should take up; it assigns more or less space to flex items.
+A flex-grow value of 1 expands flex items to take up the full space of a line.
+The higher the flex-grow value, the more an item grows relative to the other items.
+*/

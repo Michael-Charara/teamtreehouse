@@ -1,0 +1,77 @@
+If I change up to the parent directory enough times, eventually I'll reach a directory where I can't go any further.
+This is the root directory. If you imagine the file system like a tree, with directories as branches, the root directory would be the base that all the other branches spring out of.
+The root directory doesn't have a name.
+Its path is just a single slash (/).
+treehouse:~/workspace$ pwd
+/home/treehouse/workspace
+treehouse:~/workspace$ cd ..
+treehouse:~$ pwd
+/home/treehouse
+treehouse:~$ cd ..
+treehouse:/home$ pwd
+/home
+treehouse:/home$ cd ..
+treehouse:/$ pwd
+/
+treehouse:/$ cd ..
+treehouse:/$ pwd
+/
+Now let me show you a simpler way to get to the root directory.
+We started out in the home/treehouse/workspace directory. Let me change back there: cd home/treehouse/workspace/
+Instead of typing cd .. a bunch of times, I can type cd / to jump to the root directory: cd /
+This works no matter what directory I'm in.
+treehouse:/$ cd home/treehouse/workspace/
+treehouse:~/workspace$ cd /
+treehouse:/$ pwd
+/
+treehouse:/$ cd home/treehouse/
+treehouse:~$ cd /
+treehouse:/$ pwd
+/
+An absolute path is one that starts at the root directory.
+A slash by itself is the simplest absolute path; it takes you straight to the root directory, no matter where you are on the file system.
+Let's find a different directory to go to: ls
+I'll change to this bin directory: cd bin/
+And now I'll change back to the root directory: cd /
+Absolute paths start at the root directory, but like other paths, you can then join other directory names onto them.
+Suppose I was in the bin directory: cd bin/
+And I wanted to change to the dev directory.
+I couldn't do it with a relative path, because it assumes I mean a dev directory that exists within the bin directory: cd dev
+But there is a dev directory within the root directory. So if I start my path with the root directory, it will work: cd /dev
+Suppose I now want to change to the etc directory within the root directory. I don't have to change back to the root directory and then change to etc, I can just cd /etc to jump directly there.
+treehouse:/$ cd /
+treehouse:/$ cd bin/
+treehouse:/bin$ cd dev
+bash: cd: dev: No such file or directory
+treehouse:/bin$ cd /dev
+treehouse:/dev$ cd /etc
+treehouse:/etc$
+Now let's try a longer absolute path.
+We started out in the home/treehouse/workspace directory. Let's see if we can use an absolute path to get back there, starting from the etc directory.
+The home directory is within the root directory, so we start with the root: /home/treehouse/workspace
+We're taken straight there: pwd
+I can also jump straight back to the /etc directory, or any other directory, by using its absolute path: cd /etc
+treehouse:/etc$ cd /home/treehouse/workspace
+treehouse:~/workspace$ pwd
+/home/treehouse/workspace
+treehouse:~/workspace$ cd /etc
+treehouse:/etc$
+Absolute paths work with files, too.
+Let's suppose I want to print that Starbunks menu again, but I don't want to leave the /etc directory.
+I can type the cat command name: cat...
+Then I can type the absolute path of the menu.txt file.
+It's a long path, so I'm going to use tab completion to help me remember all the directory names.
+[hom, Tab, tr, Tab, wo, Tab, mal, Tab, st, Tab, men, Tab.]
+There it is, the complete absolute path of the menu.txt file, starting at the root directory.
+And when I run the command, the cat program finds the file and prints its contents.
+All without leaving the /etc directory: pwd
+treehouse:/etc$ cat /home/treehouse/workspace/mall/starbunks/menu.txt
+Venti Iced Mocha Soy Latte (with Whip): $29.99
+Grande Hot Americano: $34.99
+Tall Hot Chocolate: $24.99
+treehouse:/etc$ pwd
+/etc
+Absolute paths are a bit less convenient than relative paths.
+If you're currently in or near the same directory as a file, you can use the file's absolute path to access it.
+But it would probably be more convenient to use a relative path.
+But when you're nowhere near the file or directory you want to access, or if you don't even know where you are relative to your target, you should use its absolute path. Absolute paths eliminate all confusion about where a file or directory is within the file system.

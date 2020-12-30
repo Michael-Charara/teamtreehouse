@@ -1,0 +1,29 @@
+/* UI element states pseudo-classes ------------ */
+
+input:focus,
+textarea:focus {
+    border-color: #52bab3;
+}
+
+input:disabled {
+    background: #ddd;
+}
+
+input[type="checkbox"]:checked + label {
+    font-weight: bold;
+}
+
+/* 
+    Using :disabled and :checked
+
+    To target a disabled input element, we can write:
+
+    input:disabled {
+    background-color: grey;
+    }
+    To target a radio button or checkbox when checked, we can write:
+
+    :checked {
+    border-color: red;
+    }
+*/

@@ -1,0 +1,55 @@
+
+/* ================================= 
+  Flexbox
+==================================== */
+
+.container {
+	display: flex;
+	min-height: 50vh;
+}
+
+.item {
+	margin: auto;
+}
+
+
+/*  
+Resources
+
+A Complete Guide to Flexbox
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+
+Flexbox - latest browser support
+http://caniuse.com/#search=flexbox
+
+Flexbox Froggy - A fun way to practice flexbox
+http://flexboxfroggy.com/
+
+Flexbugs - A community-curated list of flexbox issues and cross-browser workarounds for them
+https://github.com/philipwalton/flexbugs
+
+
+
+
+Three ways to center-align elements using flexbox
+
+Set the flex container's justify-content and align-items values to center:
+
+.container {
+  justify-content: center;
+  align-items: center;
+}
+Set the flex container's justify-content value to center, while setting the flex item's align-self value to center:
+
+.container {
+  justify-content: center;
+}
+.item {
+  align-self: center;
+}
+Set the flex item's margin value to auto:
+
+.item {
+  margin: auto;
+}
+*/

@@ -1,0 +1,97 @@
+. indicates the current directory.
+It may not seem that useful, at first.
+cd . just changes to the same directory.
+You can use . in the paths of files, like: cat ./bird.txt
+But cat bird.txt does the same thing, and takes two fewer keystrokes: cat bird.txt
+treehouse:~/workspace$ pwd
+/home/treehouse/workspace
+treehouse:~/workspace$ cd .
+treehouse:~/workspace$ pwd
+/home/treehouse/workspace
+treehouse:~/workspace$ cat ./bird.txt
+There is a bird here, looking up at the statue with interest.
+treehouse:~/workspace$ cat bird.txt
+There is a bird here, looking up at the statue with interest.
+There are a few situations in which . is very useful, however.
+One is in running executable programs.
+Let me change to a directory where I have an executable stored: cd offices/web_agency/mcgavren/
+ls
+Here I have an executable file named hello.sh.
+On Unix-like systems, as a safety feature, you can't run an executable file just by typing its name: hello.sh
+You have to provide the executable's name as part of a path.
+Using only what we've learned so far, that would mean that you have to change to the parent directory: cd ..
+And then type the name of the directory that contains the executable, a slash, and the name of the executable file: mcgavren/hello.sh
+You can see that it runs, and prints the message "Hi there!".
+But that's a pain, if you're already in the same directory as the executable.
+So you can form a path just by using . to represent the current directory, a slash, and the name of the executable: ./hello.sh
+treehouse:~/workspace$ cd offices/web_agency/mcgavren/
+treehouse:~/workspace/offices/web_agency/mcgavren$ ls
+hello.sh
+treehouse:~/workspace/offices/web_agency/mcgavren$ hello.sh
+bash: hello.sh: command not found
+treehouse:~/workspace/offices/web_agency/mcgavren$ ./hello.sh
+Hi there!
+Executable files are outside the scope of this course. But you can learn how to write a shell script, make it executable, and run it here.
+
+Another special symbol we've seen is .., which represents the parent directory.
+We've already made extensive use of cd .. to change up a directory.
+You can also use .. as an argument for commands.
+For example, you can list the contents of the parent directory by running ls ..: ls ..
+You can use .. as part of a path.
+Suppose we want to change to the dentist directory that's within the parent directory.
+We don't have to cd .. and then cd dentist.
+Instead, we can type cd ../dentist: cd ../dentist
+The operating system will realize this means "the parent directory's dentist subdirectory", and change directly to it: pwd
+treehouse:~/workspace/offices/web_agency/mcgavren$ cd ..
+treehouse:~/workspace/offices/web_agency$ ls ..
+dentist  lawyer  web_agency
+treehouse:~/workspace/offices/web_agency$ cd ../dentist
+treehouse:~/workspace/offices/dentist$ pwd
+/home/treehouse/workspace/offices/dentist
+Now for a symbol we haven't looked at thoroughly, the "tilde": ~
+Like . and .., ~ is a reference to a directory, your user account's home directory.
+We can type cd ~ to go to that home directory from anywhere on our system: cd ~
+You can see that the directory path in the prompt changes to just a ~ character.
+That's not the real path of this directory. To see the real path, we can run pwd:pwd`
+You can see we're actually in a directory named treehouse, which is in a directory called home, which is in the root directory.
+The name of the treehouse directory matches the name of the user account we're logged in as.
+We can see that account name if we run the whoami command: whoami
+Each user account has its own subdirectory under the home directory.
+Windows and Mac machines have equivalents to the home directory, at different paths:
+On Windows, it's at C:\Users\ (assuming C: is your primary hard drive). Also note that in the Windows Command Prompt, the ~ shortcut doesn't work.
+On Mac OS, it's at /Users/.
+If we run ls /home, we'll see there's only the treehouse directory.
+That's because the treehouse account is the only one that's been created on this system.
+If there were other users, they would be listed here, too.
+treehouse:~/workspace/offices/dentist$ cd ~
+treehouse:~$ pwd
+/home/treehouse
+treehouse:~$ whoami
+treehouse
+treehouse:~$ ls /home
+treehouse
+So what's so special about your home directory? Why is there a special shortcut for it?
+For ordinary users, their home directory is really the only one on your system that they should make changes to.
+The root directory is filled with a dozen subdirectories or more.
+Each of these directories is filled with files that the operating system relies on to run.
+If you went around making changes in these directories, you could render your operating system unusable.
+(Don't worry, Unix-like machines are set up so that ordinary users simply get an error message if they try to make changes in the root directory.)
+Your home directory is the only directory on your system that's specifically intended for you to work in and make changes.
+And that's why there's a convenient ~ shortcut to help you access it.
+Just like . and .., you can use ~ as part of a file or directory path.
+To change to the workspace directory within your home folder, you can run cd ~/workspace: cd ~/workspace/
+This will work no matter where you are on your system.
+For example, I could change to the /etc directory within the root directory again: cd /etc
+And if I run cd ~/workspace/, I'll be taken directly there.
+Notice that I'm not typing out the whole directory name; that's because tab completion works with paths that start with ~, too.
+These are not absolute paths, because the home directory is in different places for different users.
+Still, using ~ does work like an absolute path, because it lets you reference files and subdirectories in your home directory from anywhere on your system.
+Let's print out that Starbunks menu one more time, using a path relative to the home directory: cat ~/workspace/mall/starbunks/menu.txt
+treehouse:~/workspace$ cd ~
+treehouse:~$ cd ~/workspace/
+treehouse:~/workspace$ cd /etc
+treehouse:/etc$ cd ~/workspace/
+treehouse:~/workspace$ cat ~/workspace/mall/starbunks/menu.txt
+Venti Iced Mocha Soy Latte (with Whip): $29.99
+Grande Hot Americano: $34.99
+Tall Hot Chocolate: $24.99

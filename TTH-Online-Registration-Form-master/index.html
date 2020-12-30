@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Online Registration Form</title>
+        <link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/base.css">
+        <link rel="stylesheet" href="css/flexbox.css">
+    </head>
+
+    <body>
+        <header>
+        <h1>The Code Review</h1>
+        </header>
+
+        <div class="intro">
+            <h2>Signup for our newsletter</h2>
+            <h3>Get the latest news on how your code is doing right in your inbox</h3>
+        </div>
+        <form action="index.html" method="post">
+            <div class="stripe2"></div>
+             <fieldset>
+
+                <legend><span class="number">1</span>Contact Information</legend>
+            
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="user_name" class="focus-only" placeholder="required" required>
+
+                <label for="mail">Email Address:</label>
+                <input type="email" id="mail" name="user_email" class="focus-only" placeholder="required" required>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="user_phone" class="focus-only" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" placeholder="(xxx)xxx-xxxx" required>
+
+                <label for="street">Street Address:</label>
+                <input type="text" id="street" name="user_street" class="focus-only">
+
+                <label for="city">City:</label>
+                <input type="text" id="city" name="user_city" class="focus-only">
+
+                <label for="state">State:</label>
+                <select id="state" name="user-state" >
+                    <option value="choose state">Choose State</option>
+
+                    <optgroup label="New England">
+                        <option value="connecticut">Connecticut</option>
+                        <option value="maine">Maine</option>
+                        <option value="massachusetts">Massachusetts</option>
+                        <option value="new-hampshire">New Hampshire</option>
+                        <option value="rode-island">Rode Island</option>
+                        <option value="vermont">Vermont</option>
+                    </optgroup>
+
+                    <optgroup label="Mid-Atlantic">
+                        <option value="delaware">Delaware</option>
+                        <option value="maryland">Maryland</option>
+                        <option value="new-jersey">New Jersey</option>
+                        <option value="new-york">New York</option>
+                        <option value="pennsylvania">Pennsylvania</option>
+                        <option value="washington-dc">Washington DC</option>
+                    </optgroup>
+
+                    <optgroup label="The South">
+                        <option value="alabama">Alabama</option>
+                        <option value="arkansas">Arkansas</option>
+                        <option value="florida">Florida</option>
+                        <option value="georgia">Georgia</option>
+                        <option value="kentucky">Kentucky</option>
+                        <option value="louisiana">Lousiana</option>
+                        <option value="mississippi">Mississippi</option>
+                        <option value="north carolina">North Carolina</option>
+                        <option value="south carolina">South Carolina</option>
+                        <option value="tennessee">Tennessee</option>
+                        <option value="virginia">Virginia</option>
+                        <option value="west virginia">West Virginia</option>
+                    </optgroup>
+
+                    <optgroup label="Mid-West">
+                        <option value="illinois">Illinois</option>
+                        <option value="indiana">Indiana</option>
+                        <option value="iowa">Iowa</option>
+                        <option value="kansas">Kansas</option>
+                        <option value="michigan">Michigan</option>
+                        <option value="missouri">Missouri</option>
+                        <option value="nebraska">Nebraska</option>
+                        <option value="north dakota">North Dakota</option>
+                        <option value="ohio">Ohio</option>
+                        <option value="south dakota">South Dakota</option>
+                        <option value="wisconsin">Wisconsin</option>
+                    </optgroup>
+
+                    <optgroup label="The Southwest">
+                        <option value="arizona">Arizona</option>
+                        <option value="new mexico">New Mexico</option>
+                        <option value="oklahoma">Oklahoma</option>
+                        <option value="texas">Texas</option>
+                    </optgroup>
+
+                    <optgroup label="The West">
+                        <option value="alaska">Alaska</option>
+                        <option value="colorado">Colorado</option>
+                        <option value="california">California</option>
+                        <option value="hawaii">hawaii</option>
+                        <option value="idaho">Idaho</option>
+                        <option value="montana">Montana</option>
+                        <option value="nevada">Nevada</option>
+                        <option value="oregon">Oregon</option>
+                        <option value="utah">Utah</option>
+                        <option value="washington">Washington</option>
+                        <option value="wyoming">Wyoming</option>
+                    </optgroup>
+                </select>
+
+                <label for="zip">Zip Code:</label>
+                <input type="text" id="zip" name="user_zip" class="focus-only zip" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+
+            </fieldset>
+
+
+            <div class="stripe1"></div>
+
+            <fieldset>
+            
+
+                <legend><span class="number">2</span>Newsletter</legend>
+                <div class="checkbox-margin">
+                    <div class="silver-background">
+                        <label>Select the newsletters you would like to recieve</label>
+                        <input type="checkbox" id="news-html" value="news-html" name="user_interest">
+                        <label class="light" for="news-html">HTML News</label><br>
+
+                        <input type="checkbox" id="css" value="news-css" name="user_interest"><label class="light" for="css">CSS News</label><br>
+
+                        <input type="checkbox" id="java" value="news-java" name="user_interest"><label class="light" for="java">Javascript News</label>
+
+                        <label>Newsletter format</label>
+                        <input type="radio" id="html" value="html" name="user_format">
+                        <label for="html" class="light">HTML</label><br>
+
+                        <input type="radio" id="plain-text" value="plain-text" name="user_format">
+                        <label for="plain-text" class="light">Plain text</label>
+                    </div>
+
+                    <label for="bio">Other topics you'd like to hear about</label>
+                    <textarea id="bio" name="user_bio" class="focus-only" placeholder="Type here"></textarea>
+                </div>
+            </fieldset>
+
+            <button type="submit" class="submit">Sign Up</button>
+        </form>
+
+        <footer>
+            <p>Copyright The Code Review</p>
+        </footer>
+
+      
+      
+
+    </body>
+
+
+
+
+
+
+
+
+
+</html>

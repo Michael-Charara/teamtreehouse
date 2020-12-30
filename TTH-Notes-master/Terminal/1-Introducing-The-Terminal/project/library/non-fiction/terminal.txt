@@ -1,0 +1,52 @@
+Hi, I'm Jay McGavren, a web developer and instructor at Treehouse, and I'm here to introduce you to the Terminal. The Terminal is a way to control your computer using just text.
+
+* The Graphical User Interfaces or GUIs you see on desktop and mobile apps and websites have their place. You can easily see what options are available to you, and click on the one you want.
+  * [Open Twitter DM directions, scroll.] But have you ever tried to describe to someone how to do something using a GUI, especially if it's buried under 3 levels of menus? It takes a long time!
+  * [Set fill color for 3 random cells in Google Sheet to blue.] Have you ever tried to do a task repeatedly using a GUI, especially if there's no shortcut key for it? It's tedious!
+* The terminal lets you run commands that are far more powerful than anything a GUI can do for you.
+* [Run "curl" command] Apps that run in the terminal use what's called a __command-line interface__, or CLI.
+  * [Run "docker" command] It takes longer to learn to use a command-line interface than a GUI.
+  * But in the end, a command-line interface is faster for more complicated or more repetitive tasks.
+  * This is why so many developers prefer to use the terminal.
+  * [Run "cat" command] Many developer tools only offer a command-line interface, not a graphical user interface.
+    * The terminal is the only way you'll be able to perform essential tasks like managing Docker containers, for example.
+  * [Run "git" command] Even when an app has both a CLI and a GUI available, like with the Git version control system, most developers prefer to use the CLI version.
+  * [Run "ssh" command] And most servers where developers deploy apps only offer command-line access.
+* So how do you access the terminal?
+  * Most operating systems offer some sort of terminal-like program by default.
+  * [Activate Finder] On Mac and Linux machines, it's usually simply called Terminal.
+  * [Activate Virtualbox Windows] On Windows, it's called Command Prompt, although there are alternatives like PowerShell.
+  * [Activate workspace] But you don't have to worry about those details right now, because you have access to Treehouse Workspaces.
+  * [Slow paste below text] Each workspace includes a console area that works just like a terminal. You can run commands and see their output. We'll give you directions on how to do this shortly.
+
+``` text
+mkdir library
+cd library
+pwd
+```
+
+In this course, we're going to be focusing on the terminal as used in the Linux and Mac operating systems. We'll have info near the end of the course for those who need to apply some of these concepts in Windows. You might wonder why we're not showing the Windows way first... Let me explain.
+
+#### [MOTION] S1V1G1
+
+##### Dialog
+
+* The vast majority of servers where developers deploy their software are running operating systems that are compatible with Unix, a powerful OS developed in the 1960s.
+* These compatible OSs include Linux and Mac OS.
+* All of these operating systems feature file systems and programs that work in much the same way. If you learn to use terminal programs on Linux, you'll find they all work in much the same way on Mac OS and vice-versa.
+* This isn't true with Windows. You can still do a lot from the Command Prompt on Windows, but most commands are run in a different way, and will only work on Windows.
+* We're focusing on Unix-like operating systems because they're more popular as servers, and because the commands you learn will be usable on more systems.
+* But, like I said, we'll have info near the end of the course for those who need to apply what they learn on Windows. There is quite a bit of overlap, and you can even install tools that will give you Unix-like commands on Windows.
+* We'll also show you how to access the terminal on Mac and Linux systems. [TODO add Instruction]
+
+##### Visual
+
+![](introduction-images/posix.png)
+
+(Change spacing/coloring/design of above image as needed for aesthetics.)
+
+[/MOTION]
+
+By the way, this course is an update to our retired Console Foundations course, by Jim Hoskins. A big thanks goes to Jim for his earlier work.
+
+OK. Are you ready? In the next video, we're going to try our first terminal commands!

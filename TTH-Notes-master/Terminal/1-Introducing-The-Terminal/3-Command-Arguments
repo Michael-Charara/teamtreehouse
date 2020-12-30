@@ -1,0 +1,60 @@
+The first word you enter at a command line is the name of the command. Most commands can take arguments following the command name.
+
+For example, if I type cat all by itself: cat
+It just sits there waiting for input. That's not very useful on its own.
+I'll just type Ctrl-c to interrupt the program and return to the command line.
+But if I give cat an argument with the name of a file, it will output the contents of that file.
+Let me get a list of the files that are here: ls
+There's a statue.txt file here. Let's see what it contains. I'll type the name of the cat command, a space, and then type an argument of statue.txt: cat statue.txt
+We'll see the program's output before we're returned to the command line. It's the contents of the statue.txt file.
+These are the same contents we'd see if we opened the file in an editor. [Click "statue.txt", close.]
+treehouse:~/workspace$ ls
+bird.txt  cart.txt  library  mall  offices  statue.txt
+treehouse:~/workspace$ cat statue.txt
+A statue of a hunter standing over a dead bear. Creepy.
+Commands can take multiple arguments, separated by spaces.
+I can type cat, a space, a first argument of statue.txt, another space, and a second argument of cart.txt: cat statue.txt cart.txt
+The cat program will take the contents of both files and concatenate them together. That's a fancy way of saying it prints the contents out for us, one file after another.
+treehouse:~/workspace$ cat statue.txt cart.txt
+A statue of a hunter standing over a dead bear. Creepy.
+A stand selling hot dogs and bottles of diet cola.
+Now here's another command that takes arguments: the echo command. echo takes arguments and converts them into output: echo hello
+That makes echo a great way to understand how command line arguments work.
+echo can take multiple arguments. It will print all of its arguments out, joined together with spaces: echo Each of these words is an argument.
+You can use any combination of characters as an argument, not just letters, so the last argument in that last command includes both the word argument and the period.
+If you need to take multiple words and convert them to a single argument, you can surround them with quotation marks.
+You can use either single quotes: echo 'Everything between the quotes is one single argument.'
+Or double quotes: echo "Everything between the quotes is one single argument."
+Notice that the quotation marks were consumed by the shell; they never reach the echo program. They're not treated as part of the resulting argument, and so they don't appear in the output.
+Now with a command like echo, the difference between one argument and many arguments may not seem that important.
+But even with echo, we can show you a situation where the difference matters.
+Here's an echo command with many arguments, each with two spaces between them: echo There are two spaces between each of these words.
+The spaces between arguments are also consumed by the shell, so even though there are two spaces between each argument, those spaces never reach the echo program. echo just joins all its arguments together with a single space, so the double spaces are lost.
+If you want to preserve the double spaces, you have to make them part of a single argument using quotes: echo 'There are two spaces between each of these words.'
+treehouse:~/workspace$ echo hello
+hello
+treehouse:~/workspace$ echo Each of these words is an argument.
+Each of these words is an argument.
+treehouse:~/workspace$ echo 'Everything between the quotes is one single argument.'
+Everything between the quotes is one single argument.
+treehouse:~/workspace$ echo "Everything between the quotes is one single argument."
+Everything between the quotes is one single argument.
+treehouse:~/workspace$ echo There  are  two  spaces  between  each  of  these  words.
+There are two spaces between each of these words.
+treehouse:~/workspace$ echo 'There  are  two  spaces  between  each  of  these  words.'
+There  are  two  spaces  between  each  of  these  words.
+Now let's look at a situation where the number of arguments is much more important.
+Here in the editor, I'm going to create a file with spaces in its name.
+Using spaces in a file name is normally not a good idea, for reasons we're about to see, but I'm going to do it anyway.
+Let's try looking at its contents using the cat command: cat file name with spaces.txt
+Unfortunately, each word in the file name gets treated as a separate argument.
+cat tries to print out a file named file, a file named name, a with file, and a spaces.txt file. None of these files actually exist, so it reports an error for each.
+To get cat to print out file name with spaces.txt, we need to surround the name with quotes, so it's treated as a single argument: cat 'file name with spaces.txt'
+treehouse:~/workspace$ cat file name with spaces.txt
+cat: file: No such file or directory
+cat: name: No such file or directory
+cat: with: No such file or directory
+cat: spaces.txt: No such file or directory
+treehouse:~/workspace$ cat 'file name with spaces.txt'
+hi
+treehouse:~/workspace$

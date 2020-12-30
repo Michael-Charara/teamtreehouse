@@ -1,0 +1,26 @@
+At various points, you're inevitably going to make typos that prevent a command from working.
+It would be a pain to have to type the whole command again just to fix one missing letter, though.
+That's why the shell keeps a list of the commands you're entered previously.
+You can view it with the command history: history
+You can also press the up arrow on your keyboard bring up commands you've run previously.
+Pressing the up arrow key takes you back through the list of old commands. If you go too far, you can press the down arrow key to go forward again.
+When you get to the command where you made a typo, you can edit it to fix the issue. Then just press Enter to run the updated command.
+Or, if there's a command you want to run again as-is, just hit up-arrow to bring it up, and press Enter to run it.
+By default, your shell may lose all its history when you close the terminal, and it may not save very many old commands. But it's possible to configure it to save history between terminal sessions, and to save thousands of previous commands. You can find directions to do so here.
+Another good way to fix typos is to prevent them in the first place. To do that, you can let your shell do the typing for you, with a feature called tab completion. You just type the first few letters of a command or argument, then press the Tab key. The shell will attempt to figure out what you mean and complete the word for you.
+
+Let's say I wanted to run the whoami command, to get the current user name.
+I type the first few letters: whoa, and press the Tab key on my keyboard.
+The whoami command is the only one that starts with whoa, so the shell realizes that's what I must be trying to run. It types the remaining letters of the command name for me, followed by a space.
+Now I can just press Enter to run the command.
+I can do the same with the history command.
+I type the first few letters: his, and press Tab.
+The shell completes the command name for me, and all I have to do is press Enter to run it.
+Tab completion works with file name arguments, too.
+Suppose I want to pass the statue.txt and bird.txt files to the cat command.
+I type cat, followed by a space: cat
+Then I type the first few letters of the first file name, "stat", and press Tab.
+The shell realizes there's only one file here that starts with "stat", so it completes the rest of the file name: "statue.txt".
+I also want bird.txt, so I type the first few letters of its name: "bir", and press Tab.
+Again, the shell realizes that I must mean the bird.txt file, and completes the file name for me.
+Now I can press Enter to run the command, and cat will print out the contents of the two text files.

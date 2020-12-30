@@ -1,0 +1,7 @@
+/* Flexbox css */
+
+.intro,
+form {
+    display: flex;
+    flex-direction: column;
+}

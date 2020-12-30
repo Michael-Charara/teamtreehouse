@@ -1,0 +1,48 @@
+A relative path is a file path that's relative to your starting location in the file system.
+Suppose we want to print the contents of the menu.txt file in the starbunks directory we saw before.
+Previously, we changed into the starbunks directory to access the file, but we don't always have to do that. We can do it from another directory.
+Let's type our cat command name...
+And we know the starbunks directory is within the mall directory. So let's type: mall, and then a slash: mall/...
+Then we'll type the name of the starbunks directory, and another slash: starbunks/...
+And finally we'll type the name of the file within the starbunks directory: menu.txt
+Because you provided a path, the operating system knows how to go from folder to folder to find the file.
+treehouse:~/workspace$ cat mall/starbunks/menu.txt
+Venti Iced Mocha Soy Latte (with Whip): $29.99
+Grande Hot Americano: $34.99
+Tall Hot Chocolate: $24.99
+By the way, a quick tip - you can use tab completion to do this as well.
+Now, let's suppose I was inside the mall directory instead of outside it: cd mall
+If I try the same path as before: cat mall/starbunks/menu.txt
+...it won't work, because there's no mall directory inside the mall directory.
+Instead, I have to adjust the path to account for my starting location, and leave the mall directory off of the path.
+If I type starbunks/, and then menu.txt, the operating system will be able to find the file: cat starbunks/menu.txt
+And of course, if I'm in the same directory as the file... cd starbunks/
+...Then I don't have to provide a path, I can provide just the file name: cat menu.txt
+treehouse:~/workspace$ cd mall
+treehouse:~/workspace/mall$ cat mall/starbunks/menu.txt
+cat: mall/starbunks/menu.txt: No such file or directory
+treehouse:~/workspace/mall$ cat starbunks/menu.txt
+Venti Iced Mocha Soy Latte (with Whip): $29.99
+Grande Hot Americano: $34.99
+Tall Hot Chocolate: $24.99
+treehouse:~/workspace/mall$ cd starbunks/
+treehouse:~/workspace/mall/starbunks$ cat menu.txt
+Venti Iced Mocha Soy Latte (with Whip): $29.99
+Grande Hot Americano: $34.99
+Tall Hot Chocolate: $24.99
+Paths work with directories, too.
+
+If you run ls without any arguments, it will list the contents of the current directory.
+But if you give it a directory name as an argument, it will list the contents of that directory instead: ls mall
+As always, if you want, you can put a slash at the end of a directory name, and it will work the same way: ls mall/
+I can join multiple directory names together with slashes:
+ls mall/starbunks/
+ls mall/dullards/jewelry/
+treehouse:~/workspace$ ls mall
+dullards  map.txt  starbunks
+treehouse:~/workspace$ ls mall/
+dullards  map.txt  starbunks
+treehouse:~/workspace$ ls mall/starbunks/
+menu.txt
+treehouse:~/workspace$ ls mall/dullards/jewelry/
+catalog.txt

@@ -1,0 +1,104 @@
+Most operating systems have a concept of "folders", which group a collection of files together.
+Folders can also contain other folders, and those folders can contain still more folders, nested as deeply as you want.
+In the shell, folders are usually referred to as "directories". Folders and directories are the same thing, but the term directory dates from before modern operating systems and their "folders" metaphor.
+The system we're on in this workspace is set up to show us what directory we're in as part of the shell prompt. But if you're on a system that's not set up that way, there's a command you can run to find out what directory you're in. It's called pwd, which stands for "print working directory": pwd
+When we run it, pwd prints out /home/treehouse/workspace.
+This doesn't exactly match what's shown in the prompt. The prompt directory includes this little ~ character, which is called a tilde. We'll talk more about what the tilde means later in this stage.
+In the output of pwd, the tilde is replaced with /home/treehouse. We'll talk about what this means later in the stage too.
+Both the prompt and the pwd output contain slashes. The current directory's name appears after the final slash.
+You can change between directories using the cd command.
+Let's list the files and directories in this current directory with the ls command: ls.
+It looks like there are library, mall, and offices directories here.
+Let's change into the mall directory. We run the cd command, and give it the name of the directory we want to change into as an argument: cd mall.
+Notice that the prompt changes to show that we're now in the mall directory, which is inside the workspace directory.
+If we print the working directory with pwd, that will also now that we're now in the mall directory: pwd
+Now, if we run the ls command again, we'll see the output has changed: ls
+It lists only the files and directories contained in this mall directory. It looks like there's a map.txt file here, and dullards and starbunks directories.
+If we try to run commands that work on files from other directories, they won't work, because those files aren't in this directory.
+So for example, if we try to print the contents of statue.txt with cat, it won't work, because statue.txt is in another directory: cat statue.txt
+But we can now easily run commands on files in this directory: cat map.txt
+treehouse:~/workspace$ pwd
+/home/treehouse/workspace
+treehouse:~/workspace$ ls
+bird.txt  cart.txt  library  mall  offices  statue.txt
+treehouse:~/workspace$ cd mall
+treehouse:~/workspace/mall$ pwd
+/home/treehouse/workspace/mall
+treehouse:~/workspace/mall$ ls
+dullards  map.txt  starbunks
+treehouse:~/workspace/mall$ cat statue.txt
+cat: statue.txt: No such file or directory
+treehouse:~/workspace/mall$ cat map.txt
+Suite 101: Starbunks
+Suite 102: Dullards
+Now let's try changing to one of the directories contained within the mall directory: cd starbunks
+Again, the prompt updates to show that we're now in the starbunks directory.
+And if we run pwd, it will also show the new directory name: pwd
+Let's see what this new directory contains: ls
+Looks like there's just a menu.txt file here.
+Let's print out its contents: cat menu.txt
+Again, changing to the starbunks directory makes it easy to work with the files contained in that directory. We can't easily operate on files in the mall directory anymore, because we're no longer in that directory.
+For example, we can't easily print the contents of the map.txt file, because that's in the mall directory: cat map.txt
+treehouse:~/workspace/mall$ cd starbunks
+treehouse:~/workspace/mall/starbunks$ pwd
+/home/treehouse/workspace/mall/starbunks
+treehouse:~/workspace/mall/starbunks$ ls
+menu.txt
+treehouse:~/workspace/mall/starbunks$ cat menu.txt
+Venti Iced Mocha Soy Latte (with Whip): $29.99
+Grande Hot Americano: $34.99
+Tall Hot Chocolate: $24.99
+treehouse:~/workspace/mall/starbunks$ cat map.txt
+cat: map.txt: No such file or directory
+If we want to easily look at the contents of the map.txt file, we need to get back to the mall directory.
+This starbunks directory is contained within the mall directory.
+When one directory contains another, it is said to be the parent directory.
+A directory that's inside another is said to be a child directory or subdirectory.
+So we're in a starbunks directory that's inside a mall directory.
+mall is the parent directory, and starbunks is the child directory or subdirectory.
+You can see that in the output of pwd. It shows /home/treehouse/workspace/mall/starbunks.
+See the slash characters? Each slash separates one directory name from another.
+starbunks is the directory we're currently in.
+mall is the parent of the starbunks directory.
+workspace is the parent of that. And so on.
+When you see a list of nested directories separated by slashes like this, it's called a file system path, or just "path" for short.
+Just as you might follow a path through a forest, a path through a file system indicates the route you need to follow through directories to get to a particular directory or file.
+Unix-like operating systems use forward slashes like you see here.
+Windows paths use backslashes instead of forward slashes, but they work the same way.
+We'll look at paths more in an upcoming video.
+treehouse:~/workspace/mall/starbunks$ pwd
+/home/treehouse/workspace/mall/starbunks
+So we want to get back to the mall directory and print the contents of map.txt again. But how do we do that?
+If we type cd mall, it won't work. That just tries to change to another directory named mall inside the mall directory, which doesn't exist!
+We'll see a solution if we run ls -a, to list all files.
+That listing includes two strange-looking names, . and ... The names use period characters, but they're read aloud as "dot".
+. refers to whatever directory we're currently in. So we can type cd ., but that will just change us to the same directory, so it doesn't seem to do anything: cd .
+But .. refers to whatever directory is the parent of the current directory. So cd .. will take us from the starbunks directory, back to its parent, the mall directory: cd ..
+The prompt shows that we're back in the mall directory.
+And running pwd will confirm it: pwd
+If we run ls, we'll see that the map.txt file is here.
+And now we can re-print its contents: cat map.txt
+treehouse:~/workspace/mall/starbunks$ ls -a
+.  ..  menu.txt
+treehouse:~/workspace/mall/starbunks$ cd ..
+treehouse:~/workspace/mall$ pwd
+/home/treehouse/workspace/mall
+treehouse:~/workspace/mall$ ls
+dullards  map.txt  starbunks
+If we run ls -a in this directory, we'll see . and .. again. They have the same meaning: . refers to the current directory, and .. refers to the parent.
+cd . just changes to the same directory, as before: cd .
+And cd .. changes to the parent directory, workspaces: cd ..
+treehouse:~/workspace/mall$ pwd
+/home/treehouse/workspace/mall
+treehouse:~/workspace/mall$ ls -a
+.  ..  dullards  map.txt  starbunks
+treehouse:~/workspace/mall$ cd .
+treehouse:~/workspace/mall$ cd ..
+treehouse:~/workspace$ pwd
+/home/treehouse/workspace
+You can use tab completion with directory names, too, and it's very helpful when changing directories. Any time you're referring to a directory, you can put a slash at the end of the directory name, and it means the same thing as if you'd just put the directory name by itself.
+
+treehouse:~/workspace$ cd mall
+treehouse:~/workspace/mall$ cd ..
+treehouse:~/workspace$ cd mall/
+treehouse:~/workspace/mall$

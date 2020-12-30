@@ -1,0 +1,46 @@
+File names are case-sensitive on Windows and Linux systems.
+For example I can make a Park directory with a capital "P": mkdir Park0
+If I list files now, you'll see two "park" directories, one capitalized, and one in lower-case: ls
+This would not be true on Mac OS, which uses a case-insensitive file system.
+A Mac would have complained that the park directory already exists because of the lower-case version, and would not let me create an additional upper-case version.
+Upper-case letters are always legal to use, but to help avoid confusion, you should stick to all-lowercase letters in file names, regardless of what operating system you use.
+treehouse:~/workspace/park/playground$ cd ~/workspace/
+treehouse:~/workspace$ mkdir Park
+treehouse:~/workspace$ ls
+cart.txt  library  mall  offices  park  Park  pigeon.txt  sparrow.txt  statue.txt
+Most file systems allow Unicode characters in file names now, but the special characters cause problems on older file systems.
+If you're creating a file or directory you intend to share, you should stick to ASCII characters - un-accented characters from the English alphabet.
+Numbers are fine, anywhere in the file name.
+Punctuation other than dashes and underscores should be avoided: ls -a
+A period, or "dot", is okay before the file extension, but should otherwise be avoided.
+A dot at the start of a file name makes the file "hidden".
+Spaces are legal in file or directory names, but you should avoid them.
+Let me change to the library directory's fiction subdirectory to demonstrate: cd library/fiction
+Let's say I wanted to create a directory for the author Peter F. Hamilton: mkdir peter f hamilton
+If I list files now, you'll see three new separate directories: ls
+There they are: peter, f, and hamilton.
+That is definitely not what we wanted, so let me get rid of those: rm -r f/ hamilton/ peter/
+treehouse:~/workspace$ cd library/fiction
+treehouse:~/workspace/library/fiction$ mkdir peter f hamilton
+treehouse:~/workspace/library/fiction$ ls
+f  hamilton  kim_stanley_robinson  neal_stephenson  peter
+treehouse:~/workspace/library/fiction$ rm -r f/ hamilton/ peter/
+I can create a single directory with spaces in the name by surrounding it in quotes, so it's treated as a single argument: mkdir "peter f hamilton"
+Listing files shows just one new directory, peter f hamilton.
+But unless I also surround the directory name with quotes when attempting to change into it or otherwise work with it, the command will fail, because the name gets treated as three separate arguments again: cd peter f hamilton
+So that's not going to work well. Let me get rid of that directory: rm -r 'peter f hamilton'
+treehouse:~/workspace/library/fiction$ mkdir "peter f hamilton"
+treehouse:~/workspace/library/fiction$ ls
+kim_stanley_robinson  neal_stephenson  peter f hamilton
+treehouse:~/workspace/library/fiction$ cd peter f hamilton
+bash: cd: peter: No such file or directory
+treehouse:~/workspace/library/fiction$ rm -r 'peter f hamilton'
+Instead, if a file or directory name has multiple words, it's better to separate them with underscores: mkdir peter_f_hamilton
+Or sometimes you'll see dashes used: mkdir peter-f-hamilton
+This makes it clear that the whole file or directory name is a single argument.
+But to avoid confusion you should pick one of these two standards and stick with it, don't mix the two.
+treehouse:~/workspace/library/fiction$ mkdir peter_f_hamilton
+treehouse:~/workspace/library/fiction$ ls
+kim_stanley_robinson  neal_stephenson  peter_f_hamilton
+treehouse:~/workspace/library/fiction$ cd peter_f_hamilton
+treehouse:~/workspace/library/fiction/peter_f_hamilton$

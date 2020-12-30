@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sign Up Form</title>
+        <link rel="stylesheet" href="css/normalize.css">
+        <link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+        <form action="index.html" method="post">
+            <!-- cannot nest form in forms (invalid HTML) -->
+            <!-- 
+                action is web address of program that processes the information
+                possible values are POST or GET
+                Post corresponds to the HTTP POST method
+                means that data from the body of the form is sent, or posted to the server
+                GET corresponds to the HTTP GET method
+                In this case, data is send inside of the URL, and parameters are separated with question mark.
+             -->
+             <h1>Sign Up</h1>
+
+             <fieldset>
+
+                <legend><span class="number">1</span>Your basic information</legend>
+            
+                <label for="name">Name:</label>
+                <!-- for attribute associated label with id of same value -->
+                <input type="text" id="name" name="user_name">
+
+                <label for="mail">Email:</label>
+                <input type="email" id="mail" name="user_email">
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="user_password">
+
+                <label>Age</label>
+                <input type="radio" id="under_13" value="under_13" name="user_age"></input>
+                <label for="under_13" class="light">Under 13</label><br>
+                <input type="radio" id="over_13" value="over_13" name="user_age"></input>
+                <label for="over_13" class="light">13 or Older</label>
+                <!-- the name attribute tells the browser they are apart of the same group -->
+
+            </fieldset>
+
+
+            
+            <fieldset>
+
+                <legend><span class="number">2</span>Your Profile</legend>
+                <!-- 
+                    type indicates what kind of input we want
+                    email, tell, password, text 
+
+                    ID attribute not required but helpful for targeting elements
+                    here though we need for label form controls
+
+
+                    name attribute allows server to understand data
+                    we will prefix all with user_
+                -->
+                <label for="bio">Biography:</label>
+                <textarea id="bio" name="user_bio"></textarea>
+
+                <label for="job">Job Role:</label>
+                <select id="job" name="user-job">
+                    <optgroup label="Web">
+                        <option value="frontend_developer">Front-End Developer</option>
+                        <option value="php_developer">PHP Developer</option>
+                        <option value="Python_developer">Python Developer</option>
+                        <option value="rails_developer">Rails Developer</option>
+                        <option value="Web_designer">Web Designer</option>
+                        <option value="WordPress_developer">WordPress Developer</option>
+                    </optgroup>
+
+                    <optgroup label="mobile">
+                        <option value="andriod_developer">Andriod Developer</option>
+                        <option value="IOS_developer">IOS Developer</option>
+                        <option value="mobile_designer">Mobile Designer</option>
+                    </optgroup>
+
+                    <optgroup label="Business">
+                        <option value="business_Owner">Business Owner</option>
+                        <option value="freelancer">Freelancer</option>
+                    </optgroup>
+                </select>
+
+                <label>Interests:</label>
+                <input type="checkbox" id="development" value="interest_development" name="user_interest"><label class="light" for="development">Development</label><br>
+
+                <input type="checkbox" id="Design" value="interest_development" name="user_interest"><label class="light" for="Design">Design</label><br>
+
+                <input type="checkbox" id="Business" value="interest_development" name="user_interest"><label class="light" for="Business">Business</label>
+
+                <!-- can only select one radio button but multiple checkboxes -->
+            </fieldset>
+
+            <button type="submit">Sign Up</button>
+            <!-- 
+                there is also a reset type and button type
+                reset type will reset all the data on the form
+                submit type will submit the data to the server
+                button type has no default behavior
+            -->
+        </form>
+
+      
+      
+    </body>
+</html>
